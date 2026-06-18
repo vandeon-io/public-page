@@ -1,0 +1,18 @@
+---
+import { LINKS } from '../consts.js';
+// current: 'product' | 'follow' — marks the active link
+const { current } = Astro.props;
+---
+<nav class="nav">
+  <a class="nav-brand" href="/" aria-label="PortRun home">
+    <span class="nav-brand-mark">P</span>
+    <span>portrun</span>
+  </a>
+  <div class="nav-links">
+    <a class={'nav-link hide-sm' + (current === 'product' ? ' is-current' : '')} href="/#how">product</a>
+    <a class={'nav-link' + (current === 'follow' ? ' is-current' : '')} href="/follow">follow</a>
+    <a class="btn btn-primary" href={LINKS.app} target="_blank" rel="noopener">
+      launch app <span class="btn-arrow">→</span>
+    </a>
+  </div>
+</nav>

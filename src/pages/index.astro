@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import StepGlyph from '../components/StepGlyph.astro';
+import HeroViz from '../components/HeroViz.jsx';
+import { LINKS, ACCENT } from '../consts.js';
+---
+<Base
+  title="PortRun — provision, deploy & auto-configure your servers"
+  description="PortRun is one web console to provision, deploy, and auto-configure your servers. Connect a VPS, click run, and your whole stack sets itself up — no scripts, no manual setup."
+>
+  <div data-screen-label="01 Landing">
+    <div class="wrap">
+      <Nav current="product" />
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-text reveal in">
+            <span class="kbd-tag"><span class="kbd-dot"></span> deploy software systems · on your own servers</span>
+            <h1 class="hero-h">Your servers, <em>set up</em> for you.</h1>
+            <p class="hero-sub">
+              PortRun sets up and runs your servers for you. Describe your app, connect your code, and hit deploy — PortRun handles the rest. No setup, no scripts, no servers to babysit.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary btn-lg" href={LINKS.app} target="_blank" rel="noopener">
+                launch app <span class="btn-arrow">→</span>
+              </a>
+              <a class="btn btn-ghost btn-lg" href="#how">see how it works</a>
+            </div>
+            <div class="hero-trust">
+              <span>any vps provider</span>
+              <span class="hero-trust-sep"></span>
+              <span>zero manual config</span>
+              <span class="hero-trust-sep"></span>
+              <span>built for teams of one to many</span>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal in">
+            <HeroViz client:load variant="flow" accent={ACCENT} />
+            <div class="viz-caption">
+              <span><b>you</b> → portrun web app → <b>your servers</b></span>
+              <span>·</span>
+              <span>provisioned &amp; configured automatically</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="section" id="how">
+        <div class="sect-head reveal">
+          <span class="sect-tag">§ how it works</span>
+          <h2 class="sect-h">From a GitHub repo to a running system in <em>three steps</em>.</h2>
+          <p class="sect-sub">No runbooks, no pipelines, no server setup. You describe your app in the browser — PortRun does the rest.</p>
+        </div>
+        <div class="steps reveal">
+          <article class="step">
+            <span class="step-id">01</span>
+            <span class="step-rule"></span>
+            <h3 class="step-title">Model your system</h3>
+            <p class="step-body">Create a project and add modules for each part of your app — API, worker, database, and so on. It's a picture of your system, built in the browser.</p>
+            <div class="step-glyph"><StepGlyph kind="modules" /></div>
+          </article>
+          <article class="step">
+            <span class="step-id">02</span>
+            <span class="step-rule"></span>
+            <h3 class="step-title">Connect your code</h3>
+            <p class="step-body">Link your GitHub repo so PortRun knows exactly what to build and run. No pipelines to write.</p>
+            <div class="step-glyph"><StepGlyph kind="github" /></div>
+          </article>
+          <article class="step">
+            <span class="step-id">03</span>
+            <span class="step-rule"></span>
+            <h3 class="step-title">Deploy</h3>
+            <p class="step-body">Hit deploy. PortRun sets up the servers and ships your system the first time — and every update after is just one more click.</p>
+            <div class="step-glyph"><StepGlyph kind="ship" /></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Capabilities -->
+      <section class="section" style="padding-top: 0; border-top: none;">
+        <div class="sect-head reveal" style="margin-bottom: 40px;">
+          <span class="sect-tag">§ what you get</span>
+          <h2 class="sect-h">One console. The whole lifecycle.</h2>
+        </div>
+        <div class="caps reveal">
+          <div class="cap">
+            <div class="cap-k">PROVISION</div>
+            <div class="cap-t">Servers, set up</div>
+            <p class="cap-b">Networking, users, runtimes and dependencies configured for you on connect.</p>
+          </div>
+          <div class="cap">
+            <div class="cap-k">DEPLOY</div>
+            <div class="cap-t">One-click rollouts</div>
+            <p class="cap-b">Ship a new version across the fleet, with safe rollback the moment health drifts.</p>
+          </div>
+          <div class="cap">
+            <div class="cap-k">OBSERVE</div>
+            <div class="cap-t">Health at a glance</div>
+            <p class="cap-b">Status, metrics and logs wired up automatically the moment a service comes online.</p>
+          </div>
+          <div class="cap">
+            <div class="cap-k">CONTROL</div>
+            <div class="cap-t">From one to many</div>
+            <p class="cap-b">The same simple console whether you run a single box or a multi-region fleet.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA band -->
+      <section class="cta-band reveal">
+        <h2 class="cta-h">Stop babysitting servers.</h2>
+        <p class="cta-sub">Let PortRun provision, configure, and run your infrastructure — so you can get back to building.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href={LINKS.app} target="_blank" rel="noopener">
+            launch app <span class="btn-arrow">→</span>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="/follow">follow our progress</a>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  </div>
+</Base>

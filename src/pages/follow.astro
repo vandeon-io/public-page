@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import SocialCard from '../components/SocialCard.astro';
+import { LINKS, PLATFORMS } from '../consts.js';
+---
+<Base
+  title="Follow PortRun — release notes & product updates"
+  description="Follow PortRun across LinkedIn and Telegram — each channel has its own purpose, from product milestones to real-time release notes and early access."
+>
+  <div data-screen-label="02 Follow">
+    <div class="wrap">
+      <Nav current="follow" />
+
+      <header class="page-head reveal in">
+        <span class="kbd-tag"><span class="kbd-dot"></span> stay in the loop</span>
+        <h1 class="page-h">Follow along.</h1>
+        <p class="page-sub">
+          We share progress in two places, each with its own job. Pick the one that fits how you like to keep up — or follow both.
+        </p>
+      </header>
+
+      <section class="reveal in" style="padding-bottom: 24px;">
+        <div class="social-grid">
+          {PLATFORMS.map((p) => <SocialCard p={p} />)}
+        </div>
+      </section>
+
+      <section class="cta-band reveal" style="margin-top: 40px;">
+        <h2 class="cta-h">Rather just use it?</h2>
+        <p class="cta-sub">The fastest way to see what PortRun does is to open it.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href={LINKS.app} target="_blank" rel="noopener">
+            launch app <span class="btn-arrow">→</span>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="/">back to overview</a>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  </div>
+</Base>

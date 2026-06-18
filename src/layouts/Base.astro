@@ -1,0 +1,87 @@
+---
+import '../styles/global.css';
+import { SEO, LINKS } from '../consts.js';
+
+const {
+  title,
+  description,
+  // Per-page share image (path under public/), falls back to the site default.
+  image = SEO.ogImage,
+  // Override the type for richer cards; 'website' is right for these pages.
+  type = 'website',
+} = Astro.props;
+
+// Astro.site comes from `site` in astro.config.mjs. Build absolute URLs so
+// social crawlers and search engines always resolve canonical/OG correctly.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(image, Astro.site).href;
+
+// Organization structured data — feeds Google's knowledge panel / rich results.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SEO.name,
+  url: Astro.site?.href,
+  description:
+    'PortRun is one web console to provision, deploy, and auto-configure your servers.',
+  logo: new URL('/favicon.svg', Astro.site).href,
+  sameAs: [LINKS.linkedin, LINKS.telegram].filter((u) => u && u !== '#'),
+};
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Icons / manifest -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={type} />
+  <meta property="og:site_name" content={SEO.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content={SEO.twitter} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</head>
+<body>
+  <slot />
+
+  <script>
+    // Subtle reveal-on-scroll — adds .in to .reveal elements as they enter view.
+    const els = document.querySelectorAll('.reveal');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach((e) => e.classList.add('in'));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach((e) => io.observe(e));
+    }
+  </script>
+</body>
+</html>
