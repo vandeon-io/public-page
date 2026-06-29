@@ -289,7 +289,9 @@ function palette(variant, accent) {
   };
 }
 
-export default function HeroViz({ variant = 'console', accent = '#43c07d' }) {
+// `accent` defaults to the CSS variable so the illustration always tracks the
+// single source of truth (tokens.css). SVG paint + color-mix accept var().
+export default function HeroViz({ variant = 'console', accent = 'var(--accent)' }) {
   const t = useRaf();
   const pal = palette(variant, accent);
   const dark = variant === 'console';

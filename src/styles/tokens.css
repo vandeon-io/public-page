@@ -1,0 +1,49 @@
+/* ============================================================================
+   PortRun design tokens — THE SINGLE SOURCE OF TRUTH.
+   ----------------------------------------------------------------------------
+   Every color / font / radius / motion value lives here and nowhere else.
+   - This site imports it from global.css.
+   - The PortRun app vendors a COPY of this exact file (see docs/design-system.md
+     §12). Keep the two copies identical so both products stay in sync.
+   Change a value here once and the whole site follows.
+   ============================================================================ */
+:root {
+  /* — color: ink on paper — */
+  --fg: #0a0a0a;                       /* primary text (ink)                 */
+  --fg-dim: rgba(10, 10, 10, 0.62);    /* secondary text                     */
+  --fg-dimmer: rgba(10, 10, 10, 0.40); /* tertiary text / mono captions      */
+  --bg: #fafaf7;                       /* page background (warm off-white)   */
+  --bg-card: #ffffff;                  /* raised card surface                */
+
+  /* — color: hairlines (primary separation tool — not shadows) — */
+  --line: rgba(10, 10, 10, 0.12);
+  --line-soft: rgba(10, 10, 10, 0.06);
+
+  /* — color: the one accent (semantic: good/active/healthy/primary) — */
+  --accent: #43c07d;                   /* terminal green                     */
+  --accent-ink: #0a0a0a;               /* text/icon ON accent — never white  */
+  --warn: #e0a04a;                     /* in-progress / amber status         */
+
+  /* — color: dark console surface (terminal/log/dashboard panels) — */
+  --panel: #0a0a0a;
+  --on-dark: rgba(255, 255, 255, 0.90);
+  --on-dark-dim: rgba(255, 255, 255, 0.50);
+  --on-dark-dimmer: rgba(255, 255, 255, 0.32);
+  --on-dark-line: rgba(255, 255, 255, 0.12);
+
+  /* — type — */
+  --sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* — shape — */
+  --radius-sm: 2px;                    /* tags, chips                        */
+  --radius: 3px;                       /* buttons                            */
+  --radius-md: 8px;                    /* panels / cards                     */
+  --radius-lg: 14px;                   /* large feature tiles                */
+  --maxw: 1200px;                      /* content container                  */
+
+  /* — motion (fast, subtle; always honor prefers-reduced-motion) — */
+  --t-fast: 0.12s;                     /* hover color shifts                 */
+  --t-base: 0.16s;                     /* background / transform             */
+  --t-reveal: 0.6s;                    /* scroll/load reveal                 */
+}

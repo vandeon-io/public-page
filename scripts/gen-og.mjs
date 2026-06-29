@@ -7,9 +7,12 @@ import { dirname, join } from 'node:path';
 
 const pub = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 
-const BG = '#fafaf7';
-const FG = '#0a0a0a';
-const ACCENT = '#43c07d';
+// Brand colors are mirrored from src/styles/tokens.css (this is a Node build
+// script and can't read CSS variables). If you change tokens.css, update these
+// three and re-run `node scripts/gen-og.mjs`.
+const BG = '#fafaf7';     // --bg
+const FG = '#0a0a0a';     // --fg
+const ACCENT = '#43c07d'; // --accent
 
 // ── 1200×630 Open Graph card ────────────────────────────────────────────────
 const node = (y, label, ready) => `

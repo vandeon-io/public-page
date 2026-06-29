@@ -1,20 +1,6 @@
 /* PortRun marketing site — monochrome, terminal-leaning, confident */
-
-:root {
-  --fg: #0a0a0a;
-  --fg-dim: rgba(10, 10, 10, 0.62);
-  --fg-dimmer: rgba(10, 10, 10, 0.40);
-  --bg: #fafaf7;
-  --bg-card: #ffffff;
-  --line: rgba(10, 10, 10, 0.12);
-  --line-soft: rgba(10, 10, 10, 0.06);
-  --panel: #0a0a0a;            /* dark illustration panel */
-  --accent: #43c07d;           /* terminal green — confident, "healthy" */
-  --accent-ink: #0a0a0a;       /* text color that sits on the accent */
-  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  --sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --maxw: 1200px;
-}
+/* Design tokens are centralized in tokens.css — the single source of truth. */
+@import './tokens.css';
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }

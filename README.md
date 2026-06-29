@@ -25,8 +25,10 @@ Pages, S3, …). No server required.
 
 | Path | What |
 |------|------|
-| `src/consts.js` | **Edit your links here** (app / LinkedIn / Telegram), the brand accent, and the social-platform copy. |
-| `src/styles/global.css` | All styling (design tokens + components). |
+| `src/consts.js` | **Edit your links here** (app / LinkedIn / Telegram) and the social-platform copy. |
+| `src/styles/tokens.css` | **Design tokens — the single source of truth** (color, type, radii, motion). |
+| `src/styles/global.css` | Component styling (imports `tokens.css`). |
+| `docs/design-system.md` | Design guide for porting this look to the actual app. |
 | `src/layouts/Base.astro` | `<head>`, fonts, and the reveal-on-scroll script. |
 | `src/pages/index.astro` | Landing page. |
 | `src/pages/follow.astro` | Follow page. |
@@ -37,13 +39,13 @@ Pages, S3, …). No server required.
 In `src/pages/index.astro`:
 
 ```astro
-<HeroViz client:load variant="flow" accent={ACCENT} />
+<HeroViz client:load variant="flow" accent="var(--accent)" />
 ```
 
 `variant` can be `"flow"` (default), `"console"` (dark), or `"blueprint"` (light line-art).
 
 ## Changing the accent color
 
-Two spots, keep them in sync:
-- `src/consts.js` → `ACCENT` (drives the illustration)
-- `src/styles/global.css` → `:root { --accent: … }` (drives everything else)
+One spot: `src/styles/tokens.css` → `:root { --accent: … }`. It drives everything,
+including the hero illustration (which reads `var(--accent)` directly). If you ship a
+new share image, also update the mirrored color in `scripts/gen-og.mjs` and re-run it.

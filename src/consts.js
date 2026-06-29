@@ -2,14 +2,14 @@
 // ────────────────────────────────────────────────────────────────────────────
 // EDIT THESE LINKS once they exist. Until then they point at "#".
 export const LINKS = {
-  app:      '#',   // the actual PortRun web app
+  app:      'https://app.portrun.io',   // the actual PortRun web app
   linkedin: '#',   // LinkedIn company page
   telegram: '#',   // Telegram channel
 };
 
-// Brand accent. Change once here and the whole site follows (it's wired to the
-// --accent CSS variable in global.css, and passed to the hero illustration).
-export const ACCENT = '#43c07d';
+// NOTE: design tokens (accent, colors, fonts) live in src/styles/tokens.css —
+// the single source of truth. The hero illustration reads var(--accent) directly,
+// so there is no JS copy of the accent to keep in sync.
 
 // Site-wide SEO defaults. SITE must match `site` in astro.config.mjs.
 // SOCIAL is used for Organization structured data (JSON-LD).

@@ -10,7 +10,8 @@ const { current } = Astro.props;
   </a>
   <div class="nav-links">
     <a class={'nav-link hide-sm' + (current === 'product' ? ' is-current' : '')} href="/#how">product</a>
-    <a class={'nav-link' + (current === 'follow' ? ' is-current' : '')} href="/follow">follow</a>
+    {/* follow page hidden until the LinkedIn/Telegram channels are live — re-enable to restore */}
+    {/* <a class={'nav-link' + (current === 'follow' ? ' is-current' : '')} href="/follow">follow</a> */}
     <a class="btn btn-primary" href={LINKS.app} target="_blank" rel="noopener">
       launch app <span class="btn-arrow">→</span>
     </a>
