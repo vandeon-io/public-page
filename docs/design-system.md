@@ -25,19 +25,21 @@ plain CSS).
 | **Feel** | Calm, precise, engineered. A control plane, not a toy. |
 | **Metaphor** | Terminal / console. Things are "healthy", "live", "converging". |
 | **Voice** | Lowercase mono micro-labels (`§ how it works`, `01 landing`). Sentence-case headlines. Keywords emphasized with a green highlighter swipe. |
-| **Restraint** | One accent color only. No gradients except the highlighter + subtle panel shadows. No drop shadows on flat UI — separation comes from **1px hairlines**. |
+| **Restraint** | One *brand* accent (green). Amber `--warn` and red `--danger` are functional **status-only** colors, used sparingly — not decoration. No gradients except the highlighter + subtle panel shadows. No drop shadows on flat UI — separation comes from **1px hairlines**. |
 | **Density** | Generous outer whitespace; tight, monospaced metadata. |
 
 **Do:** hairline borders, dashed section dividers, dotted backdrop, mono labels,
-single green accent for "good/active/healthy".
-**Don't:** multiple accent colors, heavy shadows on content, rounded-bubbly UI,
-ALL-CAPS body, emoji in chrome, reintroduce gradients beyond what's specified.
+single green accent for "good/active/healthy", red only for destructive/error.
+**Don't:** decorative use of color (warn/danger are status-only), heavy shadows on
+content, rounded-bubbly UI, ALL-CAPS body, emoji in chrome, reintroduce gradients
+beyond what's specified.
 
 ---
 
 ## 2. Color tokens
 
-Copy these into the app's global stylesheet `:root`. Names match the website.
+The color tokens, for reference (canonical definitions live in `tokens.css`, §12 —
+vendor the file rather than retyping this). Names match the website.
 
 ```css
 :root {
@@ -66,8 +68,13 @@ Copy these into the app's global stylesheet `:root`. Names match the website.
   use it decoratively.
 - **Text on accent is always `--accent-ink` (near-black), never white.** White on
   `#43c07d` fails contrast; near-black passes and is the brand look.
-- Status colors used in illustrations: ready/healthy = `--accent`; in-progress =
-  warm amber `#e0a04a`; idle = a dim grey (`rgba(10,10,10,0.22)`).
+- Status colors: ready/healthy = `--accent`; in-progress = warm amber `--warn`
+  (`#e0a04a`); idle = a dim grey (`rgba(10,10,10,0.22)`).
+- **Destructive / error = `--danger` (`#cf4b3a`)** — the one carve-out to "single
+  accent." Use it *only* for destructive actions (delete, force-rollback) and
+  failure/validation states, never decoratively. Unlike the green accent, danger is
+  dark enough to take **white** text (`--danger-ink`). Keep it rare — if half the
+  screen is red, it stops meaning "danger." See §15.
 
 ### Dark / console surfaces
 When you need a dark panel (terminal, log stream, the embedded "control plane"
@@ -241,7 +248,9 @@ Subtle, fast, purposeful. Honor `prefers-reduced-motion` everywhere.
 
 ## 7. Component recipes
 
-These are the building blocks. Class names mirror the site so you can lift CSS directly.
+These are the building blocks. Class names mirror the site so you can lift CSS
+directly. For app-only components the marketing site lacks — **forms & focus (§15)**,
+**data tables (§16)**, **states (§17)**, **elevation / z-index (§18)** — see those sections.
 
 ### Buttons
 ```css
@@ -337,6 +346,8 @@ extend: {
     paper:  '#fafaf7',
     card:   '#ffffff',
     accent: { DEFAULT: '#43c07d', ink: '#0a0a0a' },
+    warn:   '#e0a04a',
+    danger: { DEFAULT: '#cf4b3a', ink: '#ffffff' },
     line:   { DEFAULT: 'rgba(10,10,10,0.12)', soft: 'rgba(10,10,10,0.06)' },
     panel:  '#0a0a0a',
   },
@@ -365,8 +376,12 @@ Then `bg-paper text-ink`, `bg-accent text-accent-ink`, `border-line`,
 - [ ] Accent is **semantic only** (good/active/primary). Status: accent / amber `#e0a04a` / dim.
 - [ ] Add the **live-pill** + **kbd-tag** patterns for status/context chips.
 - [ ] Reuse the **console panel** chrome for dashboards/log views.
+- [ ] Style **form controls + an accent `:focus-visible` ring** (§15); use `--danger` for errors.
+- [ ] **Tables**: hairline rows + `tabular-nums` on number columns (§16).
+- [ ] Define **states** (hover/focus/disabled/loading/error) per §17; never color-alone signals.
+- [ ] Set up an **elevation / z-index** scale for overlays (§18); keep inline content flat.
 - [ ] Wire **reduced-motion**; keep transitions fast (`.12–.16s`) and subtle.
-- [ ] Keep one accent. No extra colors, no gradients beyond highlighter + panel lift.
+- [ ] Keep one brand accent. `--warn`/`--danger` are status-only; no decorative color, no extra gradients.
 
 ---
 
@@ -409,6 +424,8 @@ This is exactly what `tokens.css` holds — shown here so the doc reads standalo
   --accent: #43c07d;
   --accent-ink: #0a0a0a;
   --warn: #e0a04a;                 /* in-progress / amber status */
+  --danger: #cf4b3a;               /* destructive / error — use sparingly */
+  --danger-ink: #ffffff;           /* text/icon ON danger (dark enough) */
   --panel: #0a0a0a;                /* dark console surface */
   /* ink-on-dark (for --panel surfaces) */
   --on-dark: rgba(255, 255, 255, 0.90);
@@ -558,6 +575,8 @@ is authoritative.** If a token changes there, update this block too (or generate
     "accent":    { "value": "#43c07d", "role": "semantic: good/active/healthy/primary action" },
     "accentInk": { "value": "#0a0a0a", "role": "text/icon ON accent (never use white)" },
     "warn":      { "value": "#e0a04a", "role": "status/in-progress (amber)" },
+    "danger":    { "value": "#cf4b3a", "role": "destructive/error — use sparingly" },
+    "dangerInk": { "value": "#ffffff", "role": "text/icon ON danger (dark enough for white)" },
     "panel":     { "value": "#0a0a0a", "role": "surface/dark console" },
     "onDark":       { "value": "rgba(255,255,255,0.90)", "role": "text on panel" },
     "onDarkDim":    { "value": "rgba(255,255,255,0.50)", "role": "text dim on panel" },
@@ -615,6 +634,10 @@ the prompt below. It turns this document into concrete, verifiable work.
 >    accent never white, separation via 1px hairlines not shadows, headlines weight 500.
 > 6. Wire `prefers-reduced-motion` and keep transitions at `.12–.16s`.
 > 7. Reuse the **console `.panel`** chrome (§7/§12) for any dashboard, log, or status view.
+> 8. Style **forms** with an accent `:focus-visible` ring (§15), **tables** with
+>    hairline rows + `tabular-nums` (§16), and apply the **state** rules (§17) and an
+>    **elevation/z-index** scale for overlays (§18). Use `--danger` for destructive
+>    actions and error states only.
 > Don't restyle product logic or copy — only the visual layer. Show me a short list of
 > what you changed and any components that need design decisions."
 
@@ -626,6 +649,9 @@ the prompt below. It turns this document into concrete, verifiable work.
 - [ ] Element separation is 1px hairlines; shadows appear only on console/illustration panels.
 - [ ] Primary buttons are accent with **near-black** text (not white).
 - [ ] `prefers-reduced-motion` disables reveal/scroll-smoothing; nothing janky.
+- [ ] Inputs show an **accent focus ring** on keyboard nav; errors use `--danger`.
+- [ ] Number columns use `tabular-nums`; tables use hairline rows.
+- [ ] Red appears **only** on destructive/error UI — never decoratively.
 - [ ] Side-by-side, an app screen and the marketing site look like the **same product**.
 
 **Common mistakes to avoid (call these out in review):**
@@ -637,7 +663,136 @@ the prompt below. It turns this document into concrete, verifiable work.
 
 ---
 
-*Generated from the PortRun marketing site (`src/styles/global.css`, `src/consts.js`).
-If the website's `--accent` changes, update it here and in the app to keep the two
-products visually in sync. This file is self-contained — the app repo needs only
-this `.md`, not the website source.*
+## 15. Form controls & focus  *(app — the marketing site has none)*
+
+The site ships no inputs, so these extrapolate the system: fields are paper-on-paper
+with a hairline, mono is reserved for labels and "data" values, and the accent shows
+focus.
+
+```css
+.field { display: flex; flex-direction: column; gap: 6px; }
+.label { font-family: var(--mono); font-size: 12px; color: var(--fg-dim); letter-spacing: 0.02em; }
+
+.input, .select, .textarea {
+  font-family: var(--sans); font-size: 14px; color: var(--fg);
+  background: var(--bg-card);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 10px 12px;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.input::placeholder { color: var(--fg-dimmer); }
+.input:hover { border-color: var(--fg-dimmer); }
+
+/* focus — accent hairline + soft ring; the same halo as .live-dot */
+.input:focus-visible, .select:focus-visible, .textarea:focus-visible,
+.btn:focus-visible, a:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent) 25%, transparent);
+}
+
+.input--mono { font-family: var(--mono); font-size: 13px; }   /* IDs, IPs, ports, tokens */
+.input:disabled { color: var(--fg-dimmer); background: var(--bg); cursor: not-allowed; }
+
+/* error state — uses --danger */
+.input--error { border-color: var(--danger); }
+.input--error:focus-visible { box-shadow: 0 0 0 3px color-mix(in oklch, var(--danger) 22%, transparent); }
+.error-text { font-family: var(--mono); font-size: 11px; color: var(--danger); }
+.help-text  { font-family: var(--mono); font-size: 11px; color: var(--fg-dimmer); }
+
+/* destructive action button (confirmed deletes etc.) */
+.btn-danger { background: var(--danger); color: var(--danger-ink); }
+.btn-danger:hover { filter: brightness(0.94); }
+```
+
+- **Always use `:focus-visible`** (not `:focus`) so mouse clicks don't draw the ring;
+  never strip an outline without replacing it. The ring is accent — except on error
+  fields, where it's `--danger`.
+- **Checkboxes / radios / toggles:** small and square-ish; checked = `--accent` fill
+  with an `--accent-ink` mark. Toggles read like a tiny terminal switch.
+- **Danger buttons** are for *confirmed* destructive actions only. Prefer a ghost
+  button + an explicit confirm step over a one-click red button.
+
+---
+
+## 16. Data tables & numerals  *(app)*
+
+Dashboards live and die on legible tables — same hairline language as the cards.
+
+```css
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--fg-dim);
+  text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line);
+}
+.table td { padding: 12px 14px; border-bottom: 1px solid var(--line-soft); color: var(--fg); }
+.table tbody tr:hover { background: color-mix(in oklch, var(--bg) 40%, white); }
+
+/* numbers align — tabular-nums for metrics, counts, money, durations */
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+```
+
+- **Always `font-variant-numeric: tabular-nums`** on number columns so digits line up.
+- Header rule is the full `--line`; row separators are the *soft* `--line-soft`.
+- Status cells reuse the LED dot + mono label (`● healthy`, `● converging`,
+  `● failed` in `--danger`).
+- Dense/log variant: drop cell padding to `8px 12px`.
+
+---
+
+## 17. Component states  *(quick reference)*
+
+What changes per state — keep it consistent across buttons, inputs, rows, and cards.
+
+| State | Treatment |
+|-------|-----------|
+| **Default** | token colors as specified |
+| **Hover** | text `--fg-dim → --fg`; border `--line → --fg-dimmer`; surface lightens (`color-mix(… white)`); primary button `filter: brightness(0.93)` |
+| **Active / pressed** | `transform: translateY(1px)` |
+| **Focus (keyboard)** | `:focus-visible` accent border + 3px accent halo (§15); never remove an outline without replacing it |
+| **Selected / current** | text → `--fg` + a 1–2px `--accent` marker (left border, underline, or dot) |
+| **Disabled** | color `--fg-dimmer`, surface `--bg`, `cursor: not-allowed`, no hover |
+| **Loading** | skeleton blocks in `--line` (shimmer optional), or a pulsing `--accent` dot; disable the trigger |
+| **Error** | `--danger` border + `--danger` mono message |
+| **Empty** | mono caption in `--fg-dimmer` + one primary action — never a blank panel |
+
+> **Accessibility:** never signal state by **color alone** — pair it with text, icon,
+> weight, or position. Critical for the green/red (success/danger) distinction.
+
+---
+
+## 18. Elevation & z-index  *(app)*
+
+The site is flat; an app needs layering for overlays. Keep surfaces flat by default —
+a shadow is reserved for things that genuinely float.
+
+```css
+/* add these to the app's tokens.css if you want a shared layering scale */
+:root {
+  --z-sticky: 100;     /* sticky headers / toolbars */
+  --z-dropdown: 200;   /* menus, selects, popovers  */
+  --z-modal: 300;      /* dialogs + backdrop        */
+  --z-toast: 400;      /* transient notifications   */
+  --z-tooltip: 500;    /* always on top             */
+}
+/* floating surfaces: light card + soft lift (same family as the panel shadow) */
+.overlay {
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius-md);
+  box-shadow: 0 22px 50px -28px rgba(10,10,10,0.25), 0 8px 20px -12px rgba(10,10,10,0.18);
+}
+.backdrop { background: color-mix(in oklch, var(--fg) 38%, transparent); }  /* dim, not black */
+```
+
+- Only **overlays** (dropdown / modal / toast / tooltip) get a shadow; inline content
+  stays flat with hairlines.
+- Toasts reuse the `live-pill` / `kbd-tag` language: success = `--accent`,
+  error = `--danger`.
+
+---
+
+*The canonical values live in `src/styles/tokens.css` (§12); this guide mirrors them
+for reference. When a token changes in `tokens.css`, re-vendor the file to the app and
+update the §13 JSON to match. To port the look, the app needs **`tokens.css`** (copied
+in) **plus this guide** — `tokens.css` defines what the design is, the guide explains
+how to apply it.*

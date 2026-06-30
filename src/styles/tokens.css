@@ -23,6 +23,8 @@
   --accent: #43c07d;                   /* terminal green                     */
   --accent-ink: #0a0a0a;               /* text/icon ON accent — never white  */
   --warn: #e0a04a;                     /* in-progress / amber status         */
+  --danger: #cf4b3a;                   /* destructive / error — use sparingly */
+  --danger-ink: #ffffff;               /* text/icon ON danger (dark enough)   */
 
   /* — color: dark console surface (terminal/log/dashboard panels) — */
   --panel: #0a0a0a;
