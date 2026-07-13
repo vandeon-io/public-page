@@ -36,16 +36,16 @@ const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" vi
     <text x="26" y="11" font-family="Consolas, monospace" font-size="16" letter-spacing="2" fill="rgba(10,10,10,0.5)">PORTRUN · CONTROL PLANE</text>
   </g>
 
-  <text x="80" y="250" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="86" fill="${FG}">Your servers,</text>
-  <text x="80" y="338" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="86" fill="${FG}">set up <tspan fill="${ACCENT}">for you.</tspan></text>
+  <text x="80" y="250" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="82" fill="${FG}">Full-stack apps,</text>
+  <text x="80" y="338" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="82" fill="${FG}">at <tspan fill="${ACCENT}">vps prices.</tspan></text>
 
-  <text x="82" y="408" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="rgba(10,10,10,0.62)">Provision, deploy, and auto-configure your</text>
-  <text x="82" y="448" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="rgba(10,10,10,0.62)">servers — from one web console.</text>
+  <text x="82" y="408" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="rgba(10,10,10,0.62)">Frontend, backend, and database on plain VPS</text>
+  <text x="82" y="448" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="rgba(10,10,10,0.62)">servers — no hyperscaler markup.</text>
 
   <text x="80" y="560" font-family="Consolas, monospace" font-size="22" fill="${FG}">portrun.io</text>
 
-  ${node(170, 'api · us-east', true)}
-  ${node(246, 'worker · eu-central', true)}
+  ${node(170, 'frontend · us-east', true)}
+  ${node(246, 'backend · eu-central', true)}
   ${node(322, 'postgres-16 · ap-south', false)}
 </svg>`;
 

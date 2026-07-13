@@ -7,8 +7,8 @@ import HeroViz from '../components/HeroViz.jsx';
 import { LINKS } from '../consts.js';
 ---
 <Base
-  title="PortRun — provision, deploy & auto-configure your servers"
-  description="PortRun is one web console to provision, deploy, and auto-configure your servers. Connect a VPS, click run, and your whole stack sets itself up — no scripts, no manual setup."
+  title="PortRun — deploy full-stack systems, at vps prices"
+  description="PortRun deploys your frontend, backend, and database on plain VPS servers — no hyperscaler markup. From a side project to a small company."
 >
   <div data-screen-label="01 Landing">
     <div class="wrap">
@@ -18,10 +18,10 @@ import { LINKS } from '../consts.js';
       <section class="hero">
         <div class="hero-grid">
           <div class="hero-text reveal in">
-            <span class="kbd-tag"><span class="kbd-dot"></span> deploy software systems · on your own servers</span>
-            <h1 class="hero-h">Your servers, <em>set up</em> for you.</h1>
+            <span class="kbd-tag"><span class="kbd-dot"></span> deploy full-stack systems · at vps prices, not hyperscaler prices</span>
+            <h1 class="hero-h">Frontend, backend, database.<br /><em>All from one console.</em></h1>
             <p class="hero-sub">
-              PortRun sets up and runs your servers for you. Describe your app, connect your code, and hit deploy — PortRun handles the rest. No setup, no scripts, no servers to babysit.
+              PortRun gives you three building blocks — frontend, backend, and database. Set each one up and deploy it, right from your browser. No servers to log into, no configs to write by hand.
             </p>
             <div class="hero-cta">
               <a class="btn btn-primary btn-lg" href={LINKS.app} target="_blank" rel="noopener">
@@ -30,11 +30,11 @@ import { LINKS } from '../consts.js';
               <a class="btn btn-ghost btn-lg" href="#how">see how it works</a>
             </div>
             <div class="hero-trust">
-              <span>any vps provider</span>
+              <span>frontend + backend + database</span>
               <span class="hero-trust-sep"></span>
-              <span>zero manual config</span>
+              <span>vps pricing, not hyperscaler</span>
               <span class="hero-trust-sep"></span>
-              <span>built for teams of one to many</span>
+              <span>side project to small company</span>
             </div>
           </div>
 
@@ -61,7 +61,7 @@ import { LINKS } from '../consts.js';
             <span class="step-id">01</span>
             <span class="step-rule"></span>
             <h3 class="step-title">Model your system</h3>
-            <p class="step-body">Create a project and add modules for each part of your app — API, worker, database, and so on. It's a picture of your system, built in the browser.</p>
+            <p class="step-body">Create a project and add modules for each part of your app — frontend, backend, and database. It's a picture of your system, built in the browser.</p>
             <div class="step-glyph"><StepGlyph kind="modules" /></div>
           </article>
           <article class="step">
@@ -75,7 +75,7 @@ import { LINKS } from '../consts.js';
             <span class="step-id">03</span>
             <span class="step-rule"></span>
             <h3 class="step-title">Deploy</h3>
-            <p class="step-body">Hit deploy. PortRun sets up the servers and ships your system the first time — and every update after is just one more click.</p>
+            <p class="step-body">Deploy each module from the console. PortRun sets up its server and ships it — no SSH, no manual config. Every update after is just one more click.</p>
             <div class="step-glyph"><StepGlyph kind="ship" /></div>
           </article>
         </div>
@@ -111,16 +111,41 @@ import { LINKS } from '../consts.js';
         </div>
       </section>
 
+      <!-- Economics -->
+      <section class="section" style="padding-top: 0; border-top: none;">
+        <div class="sect-head reveal" style="margin-bottom: 40px;">
+          <span class="sect-tag">§ pricing</span>
+          <h2 class="sect-h">VPS economics, not <em>hyperscaler prices</em>.</h2>
+          <p class="sect-sub">Frontend, backend, and database each run as plain virtual servers — not managed services billed by the request. You're renting the box, not someone else's markup on it.</p>
+        </div>
+        <div class="caps reveal" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="cap">
+            <div class="cap-k">COMPUTE</div>
+            <div class="cap-t">Plain vps pricing</div>
+            <p class="cap-b">A flat monthly rate per server — the same instance you could rent directly, not a managed-service surcharge.</p>
+          </div>
+          <div class="cap">
+            <div class="cap-k">NO METERING</div>
+            <div class="cap-t">Flat, predictable bills</div>
+            <p class="cap-b">No per-request fees, no metered egress, no surprise line items at the end of the month.</p>
+          </div>
+          <div class="cap">
+            <div class="cap-k">RIGHT-SIZED</div>
+            <div class="cap-t">Side project to small company</div>
+            <p class="cap-b">Sized for real small-to-medium teams — not enterprise tiers built around hyperscaler contracts.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- CTA band -->
       <section class="cta-band reveal">
-        <h2 class="cta-h">Stop babysitting servers.</h2>
-        <p class="cta-sub">Let PortRun provision, configure, and run your infrastructure — so you can get back to building.</p>
+        <h2 class="cta-h">Stop paying hyperscaler prices.</h2>
+        <p class="cta-sub">Let PortRun provision, configure, and run your frontend, backend, and database — on plain vps pricing, from a side project to a small company.</p>
         <div class="cta-actions">
           <a class="btn btn-primary btn-lg" href={LINKS.app} target="_blank" rel="noopener">
             launch app <span class="btn-arrow">→</span>
           </a>
-          {/* follow page hidden until channels are live — re-enable to restore */}
-          {/* <a class="btn btn-ghost btn-lg" href="/follow">follow our progress</a> */}
+          <a class="btn btn-ghost btn-lg" href="#how">see how it works</a>
         </div>
       </section>
 

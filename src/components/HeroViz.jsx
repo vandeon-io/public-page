@@ -30,9 +30,9 @@ function serverPhase(t, offset) {
 }
 
 const SERVERS = [
-  { id: 'api',    label: 'api · 2× 4gb', region: 'us-east',    offset: 0.5 },
-  { id: 'worker', label: 'worker · 2gb', region: 'eu-central', offset: 1.4 },
-  { id: 'db',     label: 'postgres-16',  region: 'ap-south',   offset: 2.3 },
+  { id: 'frontend', label: 'frontend · 1× 2gb', region: 'us-east',    offset: 0.5 },
+  { id: 'backend',  label: 'backend · 2× 4gb',  region: 'eu-central', offset: 1.4 },
+  { id: 'database', label: 'postgres-16',       region: 'ap-south',   offset: 2.3 },
 ];
 
 function ledColor(state, pal) {
@@ -243,7 +243,7 @@ function FlowSvg({ pal, t }) {
       ), 'vps servers')}
 
       <text x={(PERSON.x + APP.x) / 2} y={cy - 24} fontSize="9" textAnchor="middle" fontFamily="var(--mono)" fill={pal.textFaint}>opens</text>
-      <text x={(APP.x + STACK.x) / 2} y={cy - 24} fontSize="9" textAnchor="middle" fontFamily="var(--mono)" fill={pal.textFaint}>provisions + configures</text>
+      <text x={(APP.x + STACK.x) / 2} y={cy - 24} fontSize="9" textAnchor="middle" fontFamily="var(--mono)" fill={pal.textFaint}>provisions</text>
 
       <line x1="20" y1="356" x2="600" y2="356" stroke={pal.edge} strokeWidth="0.5" />
       <text x="20" y="374" fontSize="9.5" fontFamily="var(--mono)" fill={pal.textDim}>
