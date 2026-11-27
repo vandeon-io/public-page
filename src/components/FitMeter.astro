@@ -1,0 +1,17 @@
+---
+// Static capacity bar for the "right-sized" section. No JS shipped.
+// `cap`  = what you pay for (outlined box, % of track)
+// `need` = what the app actually uses (solid fill, % of track)
+// `kind` = 'under' | 'fit' | 'over' — styling hook (see .fit-meter in global.css).
+const { cap, need, kind, note } = Astro.props;
+const used = Math.min(need, cap);
+---
+<div class={`fit-meter fit-meter--${kind}`} role="img" aria-label={note}>
+  <div class="fit-track">
+    <span class="fit-idle" style={`width:${cap}%`}></span>
+    <span class="fit-used" style={`width:${used}%`}></span>
+    <span class="fit-paid" style={`width:${cap}%`}></span>
+    {need > cap && <span class="fit-short" style={`left:${cap}%;width:${need - cap}%`}></span>}
+  </div>
+  <span class="fit-note">{note}</span>
+</div>

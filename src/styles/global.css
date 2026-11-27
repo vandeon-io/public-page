@@ -240,24 +240,49 @@ body::before {
 }
 .sect-sub { font-size: 18px; color: var(--fg-dim); margin: 0; max-width: 56ch; text-wrap: pretty; }
 
-/* ── how it works (3 steps) ────────────────────────────────────────────── */
-.steps {
+/* ── right-sized (too little / right / too much) ───────────────────────── */
+.fits {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1px; background: var(--line);
   border: 1px solid var(--line);
 }
-.step {
+.fit {
   background: var(--bg); padding: 30px 28px;
   display: flex; flex-direction: column; gap: 14px; min-height: 230px;
 }
-.step-id {
-  font-family: var(--mono); font-size: 11px; color: var(--accent);
-  font-weight: 600; letter-spacing: 0.08em;
+.fit.is-featured { background: var(--bg-card); box-shadow: inset 0 0 0 1px var(--accent); }
+.fit-k {
+  font-family: var(--mono); font-size: 11px; color: var(--fg-dim);
+  font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
 }
-.step-rule { height: 1px; background: var(--line); margin: 2px 0 4px; }
-.step-title { font-size: 20px; font-weight: 500; letter-spacing: -0.015em; margin: 0; }
-.step-body { font-size: 15px; color: var(--fg-dim); margin: 0; text-wrap: pretty; }
-.step-glyph { margin-top: auto; }
+.fit.is-featured .fit-k { color: var(--accent); }
+.fit-rule { height: 1px; background: var(--line); margin: 2px 0 4px; }
+.fit-title { font-size: 20px; font-weight: 500; letter-spacing: -0.015em; margin: 0; }
+.fit-body { font-size: 15px; color: var(--fg-dim); margin: 0; text-wrap: pretty; }
+.fit-glyph { margin-top: auto; padding-top: 8px; }
+/* capacity bar: outlined box = what you pay for, solid fill = what the app uses */
+.fit-meter { display: flex; flex-direction: column; gap: 10px; }
+.fit-track { position: relative; height: 16px; }
+.fit-idle, .fit-used, .fit-paid, .fit-short { position: absolute; top: 0; bottom: 0; left: 0; border-radius: var(--radius-sm); }
+/* hatched = paid for but unused (sits under the fill) */
+.fit-idle { background: repeating-linear-gradient(-45deg, var(--line) 0 1px, transparent 1px 5px); }
+/* outline drawn last so it stays visible over the fill */
+.fit-paid { border: 1px solid var(--fg); }
+.fit-used { background: var(--fg-dimmer); }
+.fit-short { border: 1px dashed var(--warn); }
+.fit-meter--under .fit-used { background: var(--warn); }
+.fit-meter--fit .fit-used { background: var(--accent); }
+.fit-note { font-family: var(--mono); font-size: 12px; color: var(--fg-dim); }
+.fit-meter--fit .fit-note { color: var(--fg); }
+
+.fit-legend {
+  display: flex; gap: 22px; flex-wrap: wrap; margin-top: 16px;
+  font-family: var(--mono); font-size: 12px; color: var(--fg-dim);
+}
+.fit-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.fit-key { display: inline-block; width: 14px; height: 10px; border-radius: var(--radius-sm); }
+.fit-key--use { background: var(--fg-dimmer); }
+.fit-key--pay { border: 1px solid var(--fg); }
 
 /* ── capability strip ──────────────────────────────────────────────────── */
 .caps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
@@ -345,7 +370,7 @@ a.social { cursor: pointer; }
 /* ── responsive ────────────────────────────────────────────────────────── */
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; gap: 44px; }
-  .steps { grid-template-columns: 1fr; }
+  .fits { grid-template-columns: 1fr; }
   .caps { grid-template-columns: repeat(2, 1fr); }
   .section { padding: 72px 0; }
 }
@@ -367,7 +392,7 @@ a.social { cursor: pointer; }
   .cta-band, .section { padding: 56px 0; }
   .sect-head { margin-bottom: 36px; }
   .foot { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .step { min-height: 0; padding: 26px 24px; }
+  .fit { min-height: 0; padding: 26px 24px; }
   .social { min-height: 0; padding: 28px 24px 26px; }
 }
 @media (max-width: 480px) {

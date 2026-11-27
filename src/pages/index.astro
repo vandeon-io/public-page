@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import StepGlyph from '../components/StepGlyph.astro';
+import FitMeter from '../components/FitMeter.astro';
 import HeroViz from '../components/HeroViz.jsx';
 import { LINKS } from '../consts.js';
 ---
@@ -27,12 +27,12 @@ import { LINKS } from '../consts.js';
               <a class="btn btn-primary btn-lg" href={LINKS.app} target="_blank" rel="noopener">
                 launch app <span class="btn-arrow">→</span>
               </a>
-              <a class="btn btn-ghost btn-lg" href="#how">see how it works</a>
+              <a class="btn btn-ghost btn-lg" href="#how">see what you pay for</a>
             </div>
             <div class="hero-trust">
               <span>ready for real customers</span>
               <span class="hero-trust-sep"></span>
-              <span>no tech skills needed</span>
+              <span>best practices built in</span>
             </div>
           </div>
 
@@ -45,35 +45,39 @@ import { LINKS } from '../consts.js';
         </div>
       </section>
 
-      <!-- How it works -->
+      <!-- Right-sized (id kept as "how" for the nav/footer "product" links) -->
       <section class="section" id="how">
         <div class="sect-head reveal">
-          <span class="sect-tag">§ how it works</span>
-          <h2 class="sect-h">From a GitHub repo to a running system in <em>three steps</em>.</h2>
-          <p class="sect-sub">No runbooks, no pipelines, no server setup. You describe your app in the browser — Vandeon does the rest.</p>
+          <span class="sect-tag">§ right-sized</span>
+          <h2 class="sect-h">Pay for what your app needs. <em>Nothing more.</em></h2>
+          <p class="sect-sub">Vandeon sizes your system to fit, and adjusts it as your app grows.</p>
         </div>
-        <div class="steps reveal">
-          <article class="step">
-            <span class="step-id">01</span>
-            <span class="step-rule"></span>
-            <h3 class="step-title">Model your system</h3>
-            <p class="step-body">Create a project and add modules for each part of your app — frontend, backend, and database. It's a picture of your system, built in the browser.</p>
-            <div class="step-glyph"><StepGlyph kind="modules" /></div>
+        <div class="fits reveal">
+          <article class="fit">
+            <span class="fit-k">too little</span>
+            <span class="fit-rule"></span>
+            <h3 class="fit-title">Struggles when it counts</h3>
+            <p class="fit-body">Not enough room, so your app slows down or goes offline right when people show up.</p>
+            <div class="fit-glyph"><FitMeter kind="under" cap={42} need={70} note="needs more than it has" /></div>
           </article>
-          <article class="step">
-            <span class="step-id">02</span>
-            <span class="step-rule"></span>
-            <h3 class="step-title">Connect your code</h3>
-            <p class="step-body">Link your GitHub repo so Vandeon knows exactly what to build and run. No pipelines to write.</p>
-            <div class="step-glyph"><StepGlyph kind="github" /></div>
+          <article class="fit is-featured">
+            <span class="fit-k">right-sized · vandeon</span>
+            <span class="fit-rule"></span>
+            <h3 class="fit-title">Exactly what it needs</h3>
+            <p class="fit-body">Enough room for your app to run well, adjusted as it grows. You pay for what it uses.</p>
+            <div class="fit-glyph"><FitMeter kind="fit" cap={78} need={70} note="fits, with room to breathe" /></div>
           </article>
-          <article class="step">
-            <span class="step-id">03</span>
-            <span class="step-rule"></span>
-            <h3 class="step-title">Deploy</h3>
-            <p class="step-body">Deploy each module from the console. Vandeon sets up its server and ships it — no SSH, no manual config. Every update after is just one more click.</p>
-            <div class="step-glyph"><StepGlyph kind="ship" /></div>
+          <article class="fit">
+            <span class="fit-k">too much</span>
+            <span class="fit-rule"></span>
+            <h3 class="fit-title">Paying for their ecosystem</h3>
+            <p class="fit-body">Big platforms run as huge ecosystems. Each service you use carries part of the cost of running all of it, so you pay more than your app needs.</p>
+            <div class="fit-glyph"><FitMeter kind="over" cap={100} need={30} note="mostly their overhead, not your app" /></div>
           </article>
+        </div>
+        <div class="fit-legend reveal">
+          <span><i class="fit-key fit-key--use"></i> what your app uses</span>
+          <span><i class="fit-key fit-key--pay"></i> what you pay for</span>
         </div>
       </section>
 

@@ -26,9 +26,9 @@ npm run preview
 | `src/styles/global.css` | Component styles (imports `tokens.css`). |
 | `docs/design-system.md` | UI implementation guide (rules, component CSS, forms, tables, states, Tailwind) for the site and the app. |
 | `src/layouts/Base.astro` | `<head>`, Google Fonts, and the reveal-on-scroll script. |
-| `src/pages/index.astro` | Landing page (hero, how-it-works, capabilities, CTA). |
+| `src/pages/index.astro` | Landing page (hero, right-sized, capabilities, CTA). |
 | `src/pages/follow.astro` | Follow page (social cards). |
-| `src/components/` | `Nav`, `Footer`, `SocialCard`, `StepGlyph` (static) + `HeroViz.jsx` (island). |
+| `src/components/` | `Nav`, `Footer`, `SocialCard`, `FitMeter` (static) + `HeroViz.jsx` (island). |
 
 ## Brand / design system — each fact has one home, don't duplicate
 - **Brand identity** (essence, voice, color meaning, logo mark, decks): the Vandeon
