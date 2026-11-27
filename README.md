@@ -57,7 +57,7 @@ new share image, also update the mirrored color in `scripts/gen-og.mjs` and re-r
 
 Configured and ready out of the box:
 
-- **`site`** in `astro.config.mjs` is set to `https://vandeon.io` — drives canonical
+- **`site`** in `astro.config.mjs` is set to `https://beta.vandeon.io` — drives canonical
   URLs, absolute Open Graph image URLs, and the sitemap. Change it if the domain changes.
 - **Sitemap** via `@astrojs/sitemap`, generated at build (`dist/sitemap-index.xml`).
 - **`public/robots.txt`** allows crawling and points to the sitemap.

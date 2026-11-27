@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vandeon.io/sitemap-index.xml
+Sitemap: https://beta.vandeon.io/sitemap-index.xml
