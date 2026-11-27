@@ -5,10 +5,26 @@ import Footer from '../components/Footer.astro';
 import FitMeter from '../components/FitMeter.astro';
 import HeroViz from '../components/HeroViz.jsx';
 import { LINKS } from '../consts.js';
+
+// Homepage FAQ — written for both audiences (plain words + the terms people search).
+const FAQS = [
+  { q: 'What is Vandeon?', a: 'Vandeon puts your web app online and keeps it running properly. It handles deployment and the day-to-day DevOps work, on servers in your own hosting account, sized to what your app needs.' },
+  { q: 'How do I put my app online?', a: 'Connect your code and your hosting account, then tell Vandeon what your app is made of. It sets up the servers, publishes your app, and keeps it healthy from then on.' },
+  { q: 'Do I need my own DevOps team?', a: 'Not to run your app properly. Vandeon handles the work a DevOps team would do: server setup, releasing updates, health checks and monitoring, following good practice.' },
+  { q: 'Where does my app run?', a: 'On VPS servers in your own hosting account. You pay your provider directly at their price, so your servers stay yours.' },
+  { q: 'How is Vandeon different from Heroku, Render or Vercel?', a: 'Those platforms run your app on their own infrastructure and build their running costs into your price. Vandeon runs your app on servers you own, sized to fit, so you pay for what your app needs.' },
+];
+
+// FAQPage structured data so search engines can read the Q&A directly.
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
 ---
 <Base
-  title="Vandeon — your app, live. Automatically."
-  description="Set it up once. Vandeon puts your entire app online, sized to what it needs, and keeps it running the right way. From solo founders to big-tech scale."
+  title="Vandeon — Launch and run your app on your own servers"
+  description="Put your web app online and keep it running on your own servers. Vandeon handles deployment, DevOps and right-sized hosting, from solo founders to enterprise."
 >
   <div data-screen-label="01 Landing">
     <div class="wrap">
@@ -106,6 +122,23 @@ import { LINKS } from '../consts.js';
             </article>
           ))}
         </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <div class="sect-head reveal">
+          <span class="sect-tag">§ questions</span>
+          <h2 class="sect-h">Putting your app online, <em>explained</em>.</h2>
+        </div>
+        <div class="faq reveal">
+          {FAQS.map((f) => (
+            <div class="faq-item">
+              <h3 class="faq-q">{f.q}</h3>
+              <p class="faq-a">{f.a}</p>
+            </div>
+          ))}
+        </div>
+        <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
       </section>
 
       <!-- CTA band -->
