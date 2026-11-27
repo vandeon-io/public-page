@@ -1,6 +1,9 @@
 // Single source of truth for site-wide constants.
 // ────────────────────────────────────────────────────────────────────────────
 // EDIT THESE LINKS once they exist. Until then they point at "#".
+// Flip to true when app.vandeon.io launches: every "coming soon" becomes "launch app".
+export const APP_LIVE = false;
+
 export const LINKS = {
   app:      'https://app.vandeon.io',   // the actual Vandeon web app
   linkedin: '#',   // LinkedIn company page

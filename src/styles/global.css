@@ -444,3 +444,12 @@ a.social { cursor: pointer; }
   .wrap { padding: 0 16px; }
   .nav-links { gap: 10px; }
 }
+
+/* ── "coming soon" state for app links (AppLink.astro, APP_LIVE=false) ── */
+.btn.is-soon {
+  background: transparent; color: var(--fg-dim);
+  border: 1px dashed var(--fg-dimmer);
+  cursor: default; filter: none; transform: none;
+}
+.btn.is-soon .kbd-dot { flex-shrink: 0; }
+.app-soon-text { color: var(--fg-dimmer); }

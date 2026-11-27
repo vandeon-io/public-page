@@ -32,7 +32,7 @@ Pages, S3, …). No server required.
 | `src/layouts/Base.astro` | `<head>`: SEO meta (canonical, Open Graph, Twitter, JSON-LD), fonts, reveal-on-scroll script. |
 | `src/pages/index.astro` | Landing page (hero, right-sized, who it's for, CTA). |
 | `src/pages/_follow.astro` | Follow page (social cards) — **currently hidden** (see below). |
-| `src/components/` | Nav, Footer, SocialCard, FitMeter (static) + HeroViz (React island). |
+| `src/components/` | Nav, Footer, SocialCard, FitMeter, AppLink (static) + HeroViz (React island). |
 | `public/` | Served as-is: `robots.txt`, `favicon.svg`, `og.png`, app icons, `site.webmanifest`. |
 | `scripts/gen-og.mjs` | Regenerates the OG share image + app icons (`npm run gen-og`). |
 
@@ -81,5 +81,5 @@ links in `Nav.astro`, `Footer.astro`, and the CTA in `index.astro`.
 ## Outstanding (content)
 
 Real values still needed in `src/consts.js`: `LINKS.linkedin` and `LINKS.telegram`
-(both `#`), plus the real handles in `PLATFORMS`. `LINKS.app` already points to
-`https://app.vandeon.io`.
+(both `#`), plus the real handles in `PLATFORMS`. `LINKS.app` points to
+`https://app.vandeon.io`, but app links show "coming soon" until `APP_LIVE` is set to `true`.

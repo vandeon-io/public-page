@@ -1,5 +1,5 @@
 ---
-import { LINKS } from '../consts.js';
+import AppLink from './AppLink.astro';
 ---
 <footer class="foot">
   <div class="foot-left">
@@ -11,6 +11,6 @@ import { LINKS } from '../consts.js';
     <a href="/#how">product</a>
     {/* follow page hidden until channels are live — re-enable to restore */}
     {/* <a href="/follow">follow</a> */}
-    <a href={LINKS.app} target="_blank" rel="noopener">launch app ↗</a>
+    <AppLink variant="text" />
   </div>
 </footer>

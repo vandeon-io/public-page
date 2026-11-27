@@ -1,0 +1,25 @@
+---
+// Every "launch app" link goes through here, so one switch (APP_LIVE in
+// consts.js) flips the whole site between "launch app" and "coming soon".
+//   variant="button" (default): a .btn, pass size/style classes via `class`
+//   variant="text": a plain footer-style link
+import { LINKS, APP_LIVE } from '../consts.js';
+const { class: cls = 'btn btn-primary', variant = 'button', label = 'launch app' } = Astro.props;
+---
+{APP_LIVE ? (
+  variant === 'text' ? (
+    <a href={LINKS.app} target="_blank" rel="noopener">{label} ↗</a>
+  ) : (
+    <a class={cls} href={LINKS.app} target="_blank" rel="noopener">
+      {label} <span class="btn-arrow">→</span>
+    </a>
+  )
+) : (
+  variant === 'text' ? (
+    <span class="app-soon-text">app coming soon</span>
+  ) : (
+    <span class={`${cls} is-soon`} aria-disabled="true">
+      <span class="kbd-dot" aria-hidden="true"></span> coming soon
+    </span>
+  )
+)}

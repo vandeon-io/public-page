@@ -28,7 +28,7 @@ npm run preview
 | `src/layouts/Base.astro` | `<head>`, Google Fonts, and the reveal-on-scroll script. |
 | `src/pages/index.astro` | Landing page (hero, right-sized, who it's for, CTA). |
 | `src/pages/follow.astro` | Follow page (social cards). |
-| `src/components/` | `Nav`, `Footer`, `SocialCard`, `FitMeter` (static) + `HeroViz.jsx` (island). |
+| `src/components/` | `Nav`, `Footer`, `SocialCard`, `FitMeter`, `AppLink` (static) + `HeroViz.jsx` (island). |
 
 ## Brand / design system — each fact has one home, don't duplicate
 - **Brand identity** (essence, voice, color meaning, logo mark, decks): the Vandeon
@@ -42,6 +42,7 @@ npm run preview
 - **Do NOT reintroduce the "tweaks panel"** — it was a design-exploration tool from the prototype, intentionally omitted from production.
 - Keep components static `.astro` unless they genuinely need client interactivity; only add `client:*` directives when necessary.
 - Add new design values as CSS custom properties in `tokens.css`, not inline.
+- **App links:** every "launch app" goes through `AppLink.astro`. While `APP_LIVE = false` in `src/consts.js` they render "coming soon"; set it to `true` at launch.
 
 ## Outstanding content (not design)
 Placeholders to replace in `src/consts.js`:

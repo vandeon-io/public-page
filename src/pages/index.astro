@@ -4,7 +4,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import FitMeter from '../components/FitMeter.astro';
 import HeroViz from '../components/HeroViz.jsx';
-import { LINKS } from '../consts.js';
+import AppLink from '../components/AppLink.astro';
 
 // Homepage FAQ — written for both audiences (plain words + the terms people search).
 const FAQS = [
@@ -40,9 +40,7 @@ const faqLd = {
               Set it up once. Vandeon puts your entire app online and keeps it running.
             </p>
             <div class="hero-cta">
-              <a class="btn btn-primary btn-lg" href={LINKS.app} target="_blank" rel="noopener">
-                launch app <span class="btn-arrow">→</span>
-              </a>
+              <AppLink class="btn btn-primary btn-lg" />
               <a class="btn btn-ghost btn-lg" href="#how">see what you pay for</a>
             </div>
             <div class="hero-trust">
@@ -146,9 +144,7 @@ const faqLd = {
         <h2 class="cta-h">Run your app the right way.</h2>
         <p class="cta-sub">Properly set up, sized to fit, and looked after, whether it's your first app or your hundredth.</p>
         <div class="cta-actions">
-          <a class="btn btn-primary btn-lg" href={LINKS.app} target="_blank" rel="noopener">
-            launch app <span class="btn-arrow">→</span>
-          </a>
+          <AppLink class="btn btn-primary btn-lg" />
         </div>
       </section>
 
