@@ -1,7 +1,7 @@
 {
   "name": "Vandeon",
   "short_name": "Vandeon",
-  "description": "One web console to provision, deploy, and auto-configure your servers.",
+  "description": "Set it up once. Vandeon puts your entire app online and keeps it running.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fafaf7",

@@ -19,7 +19,7 @@ const node = (y, label, ready) => `
   <rect x="760" y="${y}" width="360" height="56" rx="8" fill="#ffffff" stroke="${ready ? ACCENT : 'rgba(10,10,10,0.18)'}" stroke-width="1.5"/>
   <circle cx="788" cy="${y + 28}" r="6" fill="${ready ? ACCENT : '#e0a04a'}"/>
   <text x="808" y="${y + 33}" font-family="Consolas, monospace" font-size="18" fill="rgba(10,10,10,0.6)">${label}</text>
-  ${ready ? `<text x="1096" y="${y + 33}" text-anchor="end" font-family="Consolas, monospace" font-size="15" fill="${ACCENT}">healthy</text>` : ''}
+  ${ready ? `<text x="1096" y="${y + 33}" text-anchor="end" font-family="Consolas, monospace" font-size="15" fill="${FG}">ready</text>` : ''}
 `;
 
 const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
@@ -33,20 +33,22 @@ const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" vi
 
   <g transform="translate(80,86)">
     <rect width="13" height="13" rx="3" fill="${ACCENT}"/>
-    <text x="26" y="11" font-family="Consolas, monospace" font-size="16" letter-spacing="2" fill="rgba(10,10,10,0.5)">VANDEON · CONTROL PLANE</text>
+    <text x="26" y="11" font-family="Consolas, monospace" font-size="16" letter-spacing="2" fill="rgba(10,10,10,0.5)">VANDEON</text>
   </g>
 
-  <text x="80" y="250" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="82" fill="${FG}">Full-stack apps,</text>
-  <text x="80" y="338" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="82" fill="${FG}">at <tspan fill="${ACCENT}">vps prices.</tspan></text>
+  <text x="80" y="250" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="80" fill="${FG}">Your app, live.</text>
+  <!-- highlighter swipe behind the mono keyword, as in the site hero -->
+  <rect x="74" y="300" width="558" height="30" fill="${ACCENT}" fill-opacity="0.32"/>
+  <text x="80" y="326" font-family="Consolas, monospace" font-size="72" fill="${FG}">Automatically.</text>
 
-  <text x="82" y="408" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="rgba(10,10,10,0.62)">Frontend, backend, and database on plain VPS</text>
-  <text x="82" y="448" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="rgba(10,10,10,0.62)">servers — no hyperscaler markup.</text>
+  <text x="82" y="408" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="rgba(10,10,10,0.62)">Set it up once. Vandeon runs your app</text>
+  <text x="82" y="448" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="rgba(10,10,10,0.62)">the right way, sized to what it needs.</text>
 
   <text x="80" y="560" font-family="Consolas, monospace" font-size="22" fill="${FG}">vandeon.io</text>
 
-  ${node(170, 'frontend · us-east', true)}
-  ${node(246, 'backend · eu-central', true)}
-  ${node(322, 'postgres-16 · ap-south', false)}
+  ${node(170, 'screens', true)}
+  ${node(246, 'logic', true)}
+  ${node(322, 'data', false)}
 </svg>`;
 
 await sharp(Buffer.from(og)).png().toFile(join(pub, 'og.png'));
