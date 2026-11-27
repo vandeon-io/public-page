@@ -1,4 +1,4 @@
-// HeroViz.jsx — PortRun hero illustration (React island, animated).
+// HeroViz.jsx — Vandeon hero illustration (React island, animated).
 // Tells the story: a person uses the web app (browser) → the app provisions
 // VPS servers → it auto-configures them until the fleet is healthy.
 // Directions: 'console' (dark), 'blueprint' (light line-art), 'flow' (bold icons).
@@ -61,7 +61,7 @@ function FleetSvg({ pal, t }) {
       </defs>
       <rect width="620" height="460" fill={`url(#${pal.gridId})`} />
 
-      <text x="20" y="28" fontSize="9" fontFamily="var(--mono)" fill={pal.textFaint} letterSpacing="0.18em">PORTRUN › CONTROL PLANE</text>
+      <text x="20" y="28" fontSize="9" fontFamily="var(--mono)" fill={pal.textFaint} letterSpacing="0.18em">VANDEON › CONTROL PLANE</text>
       <text x="600" y="28" fontSize="9" fontFamily="var(--mono)" fill={pal.textFaint} letterSpacing="0.12em" textAnchor="end">{allReady ? 'fleet · healthy' : 'fleet · converging'}</text>
 
       <rect x="418" y="74" width="192" height="312" rx="5" fill={pal.groupFill} stroke={pal.groupStroke} strokeWidth="0.5" strokeDasharray="3 3" />
@@ -101,8 +101,8 @@ function FleetSvg({ pal, t }) {
         <circle cx={APP.x + 27} cy={APP.y + 14} r="3" fill={pal.dots} />
         <circle cx={APP.x + 38} cy={APP.y + 14} r="3" fill={pal.dots} />
         <rect x={APP.x + 52} y={APP.y + 7} width={APP.w - 64} height="14" rx="7" fill={pal.urlFill} />
-        <text x={APP.x + 60} y={APP.y + 17} fontSize="8.5" fontFamily="var(--mono)" fill={pal.textDim}>app.portrun.io</text>
-        <text x={APP.x + 14} y={APP.y + 52} fontSize="9.5" fontFamily="var(--mono)" fill={pal.text}>$ portrun up</text>
+        <text x={APP.x + 60} y={APP.y + 17} fontSize="8.5" fontFamily="var(--mono)" fill={pal.textDim}>app.vandeon.io</text>
+        <text x={APP.x + 14} y={APP.y + 52} fontSize="9.5" fontFamily="var(--mono)" fill={pal.text}>$ vandeon up</text>
         <text x={APP.x + 14} y={APP.y + 70} fontSize="9" fontFamily="var(--mono)" fill={pal.textDim}>→ reading manifest.yaml</text>
         <text x={APP.x + 14} y={APP.y + 88} fontSize="9" fontFamily="var(--mono)" fill={pal.textDim}>→ provisioning fleet</text>
         <rect x={APP.x + 14} y={APP.y + 104} width={APP.w - 28} height="6" rx="3" fill={pal.barTrack} />
@@ -111,7 +111,7 @@ function FleetSvg({ pal, t }) {
           <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite" />
         </circle>
         <text x={APP.x + 24} y={APP.y + 131} fontSize="8.5" fontFamily="var(--mono)" fill={pal.textDim}>orchestrator · live</text>
-        <text x={APP.x + APP.w / 2} y={APP.y + APP.h + 20} fontSize="9.5" textAnchor="middle" fontFamily="var(--mono)" fill={pal.textDim}>portrun web app</text>
+        <text x={APP.x + APP.w / 2} y={APP.y + APP.h + 20} fontSize="9.5" textAnchor="middle" fontFamily="var(--mono)" fill={pal.textDim}>vandeon web app</text>
       </g>
 
       {srvCY.map((cy, i) => {
@@ -199,7 +199,7 @@ function FlowSvg({ pal, t }) {
       </defs>
       <rect width="620" height="392" fill={`url(#${pal.gridId})`} />
 
-      <text x="20" y="28" fontSize="9" fontFamily="var(--mono)" fill={pal.textFaint} letterSpacing="0.18em">PORTRUN › HOW IT FLOWS</text>
+      <text x="20" y="28" fontSize="9" fontFamily="var(--mono)" fill={pal.textFaint} letterSpacing="0.18em">VANDEON › HOW IT FLOWS</text>
 
       <Conn x1={PERSON.x + 56} x2={APP.x - 56} active={true} />
       <Conn x1={APP.x + 56} x2={STACK.x - 56} active={readyCount < 3} />
@@ -216,7 +216,7 @@ function FlowSvg({ pal, t }) {
           <circle cx={APP.x - 38} cy={cy - 45} r="2.5" fill={pal.dots} />
           <circle cx={APP.x - 30} cy={cy - 45} r="2.5" fill={pal.dots} />
           <circle cx={APP.x - 22} cy={cy - 45} r="2.5" fill={pal.dots} />
-          <text x={APP.x} y={cy + 2} fontSize="13" textAnchor="middle" fontFamily="var(--mono)" fontWeight="600" fill={pal.text}>portrun</text>
+          <text x={APP.x} y={cy + 2} fontSize="13" textAnchor="middle" fontFamily="var(--mono)" fontWeight="600" fill={pal.text}>vandeon</text>
           <rect x={APP.x - 30} y={cy + 12} width="60" height="5" rx="2.5" fill={pal.barTrack} />
           <rect x={APP.x - 30} y={cy + 12} width={60 * (readyCount / 3)} height="5" rx="2.5" fill={pal.accent} />
         </g>

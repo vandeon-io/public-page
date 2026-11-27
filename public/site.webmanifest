@@ -1,6 +1,6 @@
 {
-  "name": "PortRun",
-  "short_name": "PortRun",
+  "name": "Vandeon",
+  "short_name": "Vandeon",
   "description": "One web console to provision, deploy, and auto-configure your servers.",
   "start_url": "/",
   "display": "standalone",

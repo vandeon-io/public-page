@@ -1,4 +1,4 @@
-# PortRun website — Astro
+# Vandeon website — Astro
 
 The marketing site rebuilt on [Astro](https://astro.build). Static output, zero
 JS shipped except the animated hero illustration (a small React island).
@@ -27,7 +27,7 @@ Pages, S3, …). No server required.
 | `src/consts.js` | **Edit your links here** (app / LinkedIn / Telegram), the social-platform copy, and SEO defaults. |
 | `src/styles/tokens.css` | **Design tokens — the single source of truth** (color, type, radii, motion). |
 | `src/styles/global.css` | Component styling (imports `tokens.css`). |
-| `docs/design-system.md` | Design guide for porting this look to the actual app. |
+| `docs/design-system.md` | UI implementation guide for the site and the app. Brand identity (voice, logo, color meaning) lives in the Vandeon design system artifact; token values in `tokens.css`. |
 | `astro.config.mjs` | Astro config — sets the production `site` URL and the sitemap integration. |
 | `src/layouts/Base.astro` | `<head>`: SEO meta (canonical, Open Graph, Twitter, JSON-LD), fonts, reveal-on-scroll script. |
 | `src/pages/index.astro` | Landing page (hero, how-it-works, capabilities, CTA). |
@@ -57,7 +57,7 @@ new share image, also update the mirrored color in `scripts/gen-og.mjs` and re-r
 
 Configured and ready out of the box:
 
-- **`site`** in `astro.config.mjs` is set to `https://portrun.io` — drives canonical
+- **`site`** in `astro.config.mjs` is set to `https://vandeon.io` — drives canonical
   URLs, absolute Open Graph image URLs, and the sitemap. Change it if the domain changes.
 - **Sitemap** via `@astrojs/sitemap`, generated at build (`dist/sitemap-index.xml`).
 - **`public/robots.txt`** allows crawling and points to the sitemap.
@@ -82,4 +82,4 @@ links in `Nav.astro`, `Footer.astro`, and the CTA in `index.astro`.
 
 Real values still needed in `src/consts.js`: `LINKS.linkedin` and `LINKS.telegram`
 (both `#`), plus the real handles in `PLATFORMS`. `LINKS.app` already points to
-`https://app.portrun.io`.
+`https://app.vandeon.io`.

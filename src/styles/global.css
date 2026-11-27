@@ -1,4 +1,4 @@
-/* PortRun marketing site — monochrome, terminal-leaning, confident */
+/* Vandeon marketing site — monochrome, terminal-leaning, confident */
 /* Design tokens are centralized in tokens.css — the single source of truth. */
 @import './tokens.css';
 
@@ -71,17 +71,14 @@ body::before {
   display: flex; align-items: center; gap: 11px;
   font-weight: 600; letter-spacing: -0.01em; font-size: 15px;
 }
+/* 24px box + faint outer ring; the -4px margin keeps the ring out of layout */
 .nav-brand-mark {
-  width: 24px; height: 24px;
-  border: 1px solid var(--fg);
-  display: grid; place-items: center;
-  font-size: 12px; font-weight: 700;
-  position: relative;
+  width: 32px; height: 32px;
+  margin: -4px;
+  flex: none;
+  color: var(--fg);
 }
-.nav-brand-mark::after {
-  content: ''; position: absolute; inset: -4px;
-  border: 1px solid var(--fg-dimmer); opacity: 0.4;
-}
+.nav-brand-node { fill: var(--accent); }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-link { color: var(--fg-dim); transition: color 0.12s; }
 .nav-link:hover { color: var(--fg); }

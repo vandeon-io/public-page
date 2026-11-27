@@ -33,7 +33,7 @@ const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" vi
 
   <g transform="translate(80,86)">
     <rect width="13" height="13" rx="3" fill="${ACCENT}"/>
-    <text x="26" y="11" font-family="Consolas, monospace" font-size="16" letter-spacing="2" fill="rgba(10,10,10,0.5)">PORTRUN · CONTROL PLANE</text>
+    <text x="26" y="11" font-family="Consolas, monospace" font-size="16" letter-spacing="2" fill="rgba(10,10,10,0.5)">VANDEON · CONTROL PLANE</text>
   </g>
 
   <text x="80" y="250" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="82" fill="${FG}">Full-stack apps,</text>
@@ -42,7 +42,7 @@ const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" vi
   <text x="82" y="408" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="rgba(10,10,10,0.62)">Frontend, backend, and database on plain VPS</text>
   <text x="82" y="448" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="rgba(10,10,10,0.62)">servers — no hyperscaler markup.</text>
 
-  <text x="80" y="560" font-family="Consolas, monospace" font-size="22" fill="${FG}">portrun.io</text>
+  <text x="80" y="560" font-family="Consolas, monospace" font-size="22" fill="${FG}">vandeon.io</text>
 
   ${node(170, 'frontend · us-east', true)}
   ${node(246, 'backend · eu-central', true)}
@@ -55,7 +55,10 @@ console.log('wrote og.png (1200×630)');
 // ── App icons from the favicon mark ─────────────────────────────────────────
 const icon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="14" fill="${FG}"/>
-  <path d="M22 16h13c7 0 11.5 4.2 11.5 10.6S42 37.4 35 37.4h-6.4V48H22V16zm6.6 5.8v9.8H34c3.4 0 5.4-1.8 5.4-4.9s-2-4.9-5.4-4.9h-5.4z" fill="${ACCENT}"/>
+  <path d="M20 20 L32 43 M44 20 L32 43" fill="none" stroke="${BG}" stroke-width="3.6" stroke-linecap="round"/>
+  <circle cx="20" cy="20" r="4.2" fill="${BG}"/>
+  <circle cx="44" cy="20" r="4.2" fill="${BG}"/>
+  <circle cx="32" cy="43.5" r="6.2" fill="${ACCENT}"/>
 </svg>`;
 
 for (const size of [180, 192, 512]) {

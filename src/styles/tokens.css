@@ -1,9 +1,9 @@
 /* ============================================================================
-   PortRun design tokens — THE SINGLE SOURCE OF TRUTH.
+   Vandeon design tokens — THE SINGLE SOURCE OF TRUTH.
    ----------------------------------------------------------------------------
    Every color / font / radius / motion value lives here and nowhere else.
    - This site imports it from global.css.
-   - The PortRun app vendors a COPY of this exact file (see docs/design-system.md
+   - The Vandeon app vendors a COPY of this exact file (see docs/design-system.md
      §12). Keep the two copies identical so both products stay in sync.
    Change a value here once and the whole site follows.
    ============================================================================ */

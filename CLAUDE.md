@@ -1,6 +1,6 @@
-# PortRun website (Astro) — guide for Claude Code
+# Vandeon website (Astro) — guide for Claude Code
 
-Production marketing site for **PortRun**, a SaaS platform to provision, deploy,
+Production marketing site for **Vandeon**, a SaaS platform to provision, deploy,
 and auto-configure servers. Built with Astro 4 + a single React island. Static
 output — deploy `dist/` anywhere.
 
@@ -24,17 +24,17 @@ npm run preview
 | `src/consts.js` | **Single source of truth** for links (app/LinkedIn/Telegram) and social-platform copy. Edit here. |
 | `src/styles/tokens.css` | **Single source of truth for design tokens** (color, type, radii, motion). Imported by `global.css`; the app vendors a copy of this file. Edit values here only. |
 | `src/styles/global.css` | Component styles (imports `tokens.css`). |
-| `docs/design-system.md` | Brand/design guide for porting the look to the actual app. |
+| `docs/design-system.md` | UI implementation guide (rules, component CSS, forms, tables, states, Tailwind) for the site and the app. |
 | `src/layouts/Base.astro` | `<head>`, Google Fonts, and the reveal-on-scroll script. |
 | `src/pages/index.astro` | Landing page (hero, how-it-works, capabilities, CTA). |
 | `src/pages/follow.astro` | Follow page (social cards). |
 | `src/components/` | `Nav`, `Footer`, `SocialCard`, `StepGlyph` (static) + `HeroViz.jsx` (island). |
 
-## Brand / design system
-- **Type:** Inter (UI/body) + JetBrains Mono (labels, chrome). Loaded via Google Fonts in `Base.astro`.
-- **Color:** off-white `#fafaf7`, near-black `#0a0a0a`, accent green `#43c07d`.
-- **Voice:** lowercase mono micro-labels, em-highlighted keywords, terminal/console motifs.
-- Everything is driven by CSS custom properties defined in `src/styles/tokens.css`. Prefer tokens over hardcoded values.
+## Brand / design system — each fact has one home, don't duplicate
+- **Brand identity** (essence, voice, color meaning, logo mark, decks): the Vandeon
+  design system Claude artifact, https://claude.ai/artifact/5En8uUaGWqSTtHSTiWxPnx
+- **Token values:** `src/styles/tokens.css`.
+- **How to build UI with them:** `docs/design-system.md` (names tokens, never repeats values).
 
 ## Conventions — please follow
 - **Design tokens have ONE home:** `src/styles/tokens.css`. Change a color/font/radius there and the whole site follows. The hero illustration reads `var(--accent)` directly (passed as `accent="var(--accent)"` in `index.astro`), so there is no JS copy to keep in sync. The OG generator (`scripts/gen-og.mjs`) mirrors a few colors with a comment — update it if tokens change.
@@ -46,8 +46,8 @@ npm run preview
 ## Outstanding content (not design)
 Placeholders to replace in `src/consts.js`:
 - Real URLs: `LINKS.app`, `LINKS.linkedin`, `LINKS.telegram` (all `#`).
-- Real handles (currently `/company/portrun`, `@portrun`).
-- Optional logo (currently a "P" wordmark in `Nav.astro`).
+- Real handles (currently `/company/vandeon`, `@vandeon`).
+- Logo: the converging-nodes mark (inline SVG in `Nav.astro`; `public/favicon.svg`; app icons from `scripts/gen-og.mjs`).
 
 ## Note on origin
 These files were generated from an HTML design prototype. They are real,
