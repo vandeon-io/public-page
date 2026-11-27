@@ -111,7 +111,7 @@ Usage: `<h1>Your servers, <span class="hl">set up</span> for you.</h1>`
   `480px`, `360px`.
 
 ### Hairline grid
-Groups of cells (sizing cards, capabilities, plans, social cards) are a grid whose gap is a
+Groups of cells (sizing cards, tiers, plans, social cards) are a grid whose gap is a
 single hairline: the grid background is `--line` and each cell is filled, so there
 are no double borders.
 

@@ -30,7 +30,7 @@ Pages, S3, …). No server required.
 | `docs/design-system.md` | UI implementation guide for the site and the app. Brand identity (voice, logo, color meaning) lives in the Vandeon design system artifact; token values in `tokens.css`. |
 | `astro.config.mjs` | Astro config — sets the production `site` URL and the sitemap integration. |
 | `src/layouts/Base.astro` | `<head>`: SEO meta (canonical, Open Graph, Twitter, JSON-LD), fonts, reveal-on-scroll script. |
-| `src/pages/index.astro` | Landing page (hero, right-sized, capabilities, CTA). |
+| `src/pages/index.astro` | Landing page (hero, right-sized, who it's for, CTA). |
 | `src/pages/_follow.astro` | Follow page (social cards) — **currently hidden** (see below). |
 | `src/components/` | Nav, Footer, SocialCard, FitMeter (static) + HeroViz (React island). |
 | `public/` | Served as-is: `robots.txt`, `favicon.svg`, `og.png`, app icons, `site.webmanifest`. |

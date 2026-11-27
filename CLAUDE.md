@@ -26,7 +26,7 @@ npm run preview
 | `src/styles/global.css` | Component styles (imports `tokens.css`). |
 | `docs/design-system.md` | UI implementation guide (rules, component CSS, forms, tables, states, Tailwind) for the site and the app. |
 | `src/layouts/Base.astro` | `<head>`, Google Fonts, and the reveal-on-scroll script. |
-| `src/pages/index.astro` | Landing page (hero, right-sized, capabilities, CTA). |
+| `src/pages/index.astro` | Landing page (hero, right-sized, who it's for, CTA). |
 | `src/pages/follow.astro` | Follow page (social cards). |
 | `src/components/` | `Nav`, `Footer`, `SocialCard`, `FitMeter` (static) + `HeroViz.jsx` (island). |
 

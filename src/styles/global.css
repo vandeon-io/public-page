@@ -297,13 +297,6 @@ body::before {
 .fit-key--use { background: var(--fg-dimmer); }
 .fit-key--pay { border: 1px solid var(--fg); }
 
-/* ── capability strip ──────────────────────────────────────────────────── */
-.caps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.cap { background: var(--bg); padding: 24px 22px; }
-.cap-k { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.06em; }
-.cap-t { font-size: 16px; font-weight: 500; margin: 10px 0 6px; letter-spacing: -0.01em; }
-.cap-b { font-size: 13.5px; color: var(--fg-dim); margin: 0; }
-
 /* ── CTA band ──────────────────────────────────────────────────────────── */
 .cta-band {
   border-top: 1px dashed var(--line);
@@ -384,7 +377,6 @@ a.social { cursor: pointer; }
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; gap: 44px; }
   .fits, .tiers { grid-template-columns: 1fr; }
-  .caps { grid-template-columns: repeat(2, 1fr); }
   .section { padding: 72px 0; }
 }
 @media (max-width: 720px) {
@@ -401,7 +393,6 @@ a.social { cursor: pointer; }
   .hero-cta { gap: 12px; }
   .hero-cta .btn-lg { flex: 1 1 auto; justify-content: center; }
   .social-grid { grid-template-columns: 1fr; }
-  .caps { grid-template-columns: 1fr; }
   .cta-band, .section { padding: 56px 0; }
   .sect-head { margin-bottom: 36px; }
   .foot { flex-direction: column; align-items: flex-start; gap: 16px; }
