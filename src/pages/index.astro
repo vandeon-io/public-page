@@ -81,33 +81,30 @@ import { LINKS } from '../consts.js';
         </div>
       </section>
 
-      <!-- Capabilities -->
-      <section class="section" style="padding-top: 0; border-top: none;">
-        <div class="sect-head reveal" style="margin-bottom: 40px;">
-          <span class="sect-tag">§ what you get</span>
-          <h2 class="sect-h">One console. The whole lifecycle.</h2>
+      <!-- Who it's for -->
+      <section class="section" id="who">
+        <div class="sect-head reveal">
+          <span class="sect-tag">§ who it's for</span>
+          <h2 class="sect-h">From your first app to <em>big-tech scale</em>.</h2>
+          <p class="sect-sub">Vandeon steps in as the operations team you'd otherwise have to hire, shaped around where you are today.</p>
         </div>
-        <div class="caps reveal">
-          <div class="cap">
-            <div class="cap-k">PROVISION</div>
-            <div class="cap-t">Servers, set up</div>
-            <p class="cap-b">Networking, users, runtimes and dependencies configured for you on connect.</p>
-          </div>
-          <div class="cap">
-            <div class="cap-k">DEPLOY</div>
-            <div class="cap-t">One-click rollouts</div>
-            <p class="cap-b">Ship a new version across the fleet, with safe rollback the moment health drifts.</p>
-          </div>
-          <div class="cap">
-            <div class="cap-k">OBSERVE</div>
-            <div class="cap-t">Health at a glance</div>
-            <p class="cap-b">Status, metrics and logs wired up automatically the moment a service comes online.</p>
-          </div>
-          <div class="cap">
-            <div class="cap-k">CONTROL</div>
-            <div class="cap-t">From one to many</div>
-            <p class="cap-b">The same simple console whether you run a single box or a multi-region fleet.</p>
-          </div>
+        <div class="tiers reveal">
+          {[
+            { k: 'just you', t: 'Solo founders', b: 'Launch properly from day one, without hiring anyone to run it.' },
+            { k: 'a small team', t: 'Startups', b: 'Move fast without cutting corners. Your setup is ready when growth hits.' },
+            { k: 'a growing business', t: 'Small & medium businesses', b: 'Keep everything reliable and costs in check, without a full-time team.' },
+            { k: 'many teams', t: 'Enterprise', b: 'One consistent way of running every system. Updates go live only when someone approves them.' },
+            { k: 'massive scale', t: 'Big-tech scale', b: 'The same discipline across a huge number of systems, each one sized right.' },
+          ].map((tier, i) => (
+            <article class="tier">
+              <span class="tier-scale" aria-hidden="true">
+                {[0, 1, 2, 3, 4].map((n) => <i class={n <= i ? 'on' : ''}></i>)}
+              </span>
+              <span class="tier-k">{tier.k}</span>
+              <h3 class="tier-t">{tier.t}</h3>
+              <p class="tier-b">{tier.b}</p>
+            </article>
+          ))}
         </div>
       </section>
 
