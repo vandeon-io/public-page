@@ -220,7 +220,7 @@ function FlowSvg({ pal, t }) {
           <rect x={APP.x - 30} y={cy + 12} width="60" height="5" rx="2.5" fill={pal.barTrack} />
           <rect x={APP.x - 30} y={cy + 12} width={60 * (readyCount / 3)} height="5" rx="2.5" fill={pal.accent} />
         </g>
-      ), 'web app')}
+      ), 'sets it all up')}
 
       {bigTile(STACK.x, cy, (
         <g>
@@ -240,16 +240,16 @@ function FlowSvg({ pal, t }) {
             );
           })}
         </g>
-      ), 'vps servers')}
+      ), 'your app, live')}
 
-      <text x={(PERSON.x + APP.x) / 2} y={cy - 24} fontSize="9" textAnchor="middle" fontFamily="var(--mono)" fill={pal.textFaint}>opens</text>
-      <text x={(APP.x + STACK.x) / 2} y={cy - 24} fontSize="9" textAnchor="middle" fontFamily="var(--mono)" fill={pal.textFaint}>provisions</text>
+      <text x={(PERSON.x + APP.x) / 2} y={cy - 24} fontSize="9" textAnchor="middle" fontFamily="var(--mono)" fill={pal.textFaint}>set up once</text>
+      <text x={(APP.x + STACK.x) / 2} y={cy - 24} fontSize="9" textAnchor="middle" fontFamily="var(--mono)" fill={pal.textFaint}>goes live</text>
 
       <line x1="20" y1="356" x2="600" y2="356" stroke={pal.edge} strokeWidth="0.5" />
       <text x="20" y="374" fontSize="9.5" fontFamily="var(--mono)" fill={pal.textDim}>
-        <tspan fill={pal.accent}>●</tspan> {readyCount}/3 nodes configured automatically
+        <tspan fill={pal.accent}>●</tspan> {readyCount}/3 ready
       </text>
-      <text x="600" y="374" fontSize="9.5" textAnchor="end" fontFamily="var(--mono)" fill={pal.textFaint}>no manual ssh</text>
+      <text x="600" y="374" fontSize="9.5" textAnchor="end" fontFamily="var(--mono)" fill={pal.textFaint}>kept running for you</text>
     </svg>
   );
 }
@@ -310,7 +310,7 @@ export default function HeroViz({ variant = 'console', accent = 'var(--accent)' 
           ))}
         </div>
         <div className="viz-meta">
-          <span>{readyCount}/3 nodes</span>
+          <span>{readyCount}/3 ready</span>
           <span style={{ color: accent }}>● live</span>
         </div>
       </div>
