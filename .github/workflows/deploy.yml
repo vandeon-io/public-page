@@ -1,6 +1,6 @@
-# Build the Astro site and publish dist/ to GitHub Pages (https://beta.vandeon.io).
+# Build the Astro site and publish dist/ to GitHub Pages (https://vandeon.io).
 # Requires: repo Settings → Pages → Source = "GitHub Actions",
-#           custom domain = beta.vandeon.io (with a DNS CNAME to vandeon-io.github.io).
+#           custom domain = vandeon.io (DNS on Cloudflare).
 name: Deploy to GitHub Pages
 
 on:

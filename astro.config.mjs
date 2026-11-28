@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   // Production URL — drives canonical links, absolute OG image URLs, and the
   // generated sitemap. Update if the domain changes.
-  site: 'https://beta.vandeon.io',
+  site: 'https://vandeon.io',
   integrations: [react(), sitemap()],
   // Static site — outputs plain HTML/CSS/JS to ./dist
   output: 'static',
