@@ -1,6 +1,6 @@
 ---
 import AppLink from './AppLink.astro';
-// current: 'product' | 'follow' — marks the active link
+// current: 'product' | 'pricing' | 'follow' — marks the active link
 const { current } = Astro.props;
 ---
 <nav class="nav">
@@ -17,6 +17,7 @@ const { current } = Astro.props;
   </a>
   <div class="nav-links">
     <a class={'nav-link hide-sm' + (current === 'product' ? ' is-current' : '')} href="/#how">product</a>
+    <a class={'nav-link' + (current === 'pricing' ? ' is-current' : '')} href="/pricing">pricing</a>
     {/* follow page hidden until the LinkedIn/Telegram channels are live — re-enable to restore */}
     {/* <a class={'nav-link' + (current === 'follow' ? ' is-current' : '')} href="/follow">follow</a> */}
     <AppLink class="btn btn-primary" />

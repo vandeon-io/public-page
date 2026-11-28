@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AppLink from '../components/AppLink.astro';
+import { PLANS, FAQS, ANNUAL_DISCOUNT } from '../consts.js';
+
+const yearly = (m) => Math.round(m * (1 - ANNUAL_DISCOUNT));
+const pct = Math.round(ANNUAL_DISCOUNT * 100);
+---
+<Base
+  title="Vandeon — pricing"
+  description="Beta pricing. Your app runs on your own hosting account; Vandeon plans cover setting it up and running it properly. Startups, Enterprise, and Custom."
+>
+  <div data-screen-label="03 Pricing">
+    <div class="wrap">
+      <Nav current="pricing" />
+
+      <header class="page-head reveal in">
+        <span class="kbd-tag"><span class="kbd-dot"></span> beta pricing</span>
+        <h1 class="page-h">Pay for running it right. <em>Not for a platform.</em></h1>
+        <p class="page-sub">
+          Your app runs on your own hosting account, so you pay your provider for servers at their price. Vandeon's plan covers setting it up and running it properly.
+        </p>
+      </header>
+
+      <section class="plans-section reveal in">
+        <div class="plans">
+          {PLANS.map((p) => (
+            <article class={'plan' + (p.featured ? ' is-featured' : '')}>
+              <span class="plan-name">{p.name}</span>
+              {p.monthly != null ? (
+                <div>
+                  <div class="plan-price">${p.monthly}<span>/ month</span></div>
+                  <div class="plan-yearly">or ${yearly(p.monthly)}/month billed yearly</div>
+                </div>
+              ) : (
+                <div>
+                  <div class="plan-price">Let's talk</div>
+                  <div class="plan-yearly">priced per company</div>
+                </div>
+              )}
+              <p class="plan-desc">{p.who}</p>
+              <ul class="plan-limits">
+                {p.limits.map((l) => <li>{l}</li>)}
+              </ul>
+              <span class="plan-lead">{p.lead}</span>
+              <ul class="plan-feats">
+                {p.features.map((f) => <li>{f}</li>)}
+              </ul>
+              {p.href === 'app' && (
+                <AppLink class={'btn ' + (p.featured ? 'btn-primary' : 'btn-ghost')} label={p.cta} />
+              )}
+            </article>
+          ))}
+        </div>
+        <p class="plans-note">All prices in USD and set for the beta. Paying yearly saves {pct}%.</p>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="sect-head reveal">
+          <span class="sect-tag">§ faq</span>
+          <h2 class="sect-h">Questions, answered.</h2>
+        </div>
+        <div class="faq reveal">
+          {FAQS.map((f) => (
+            <div class="faq-item">
+              <h3 class="faq-q">{f.q}</h3>
+              <p class="faq-a">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="cta-band reveal">
+        <h2 class="cta-h">Start with what you need.</h2>
+        <p class="cta-sub">Pick a plan now and change it as your app grows.</p>
+        <div class="cta-actions">
+          <AppLink class="btn btn-primary btn-lg" />
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  </div>
+</Base>

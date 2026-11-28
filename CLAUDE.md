@@ -27,7 +27,8 @@ npm run preview
 | `docs/design-system.md` | UI implementation guide (rules, component CSS, forms, tables, states, Tailwind) for the site and the app. |
 | `src/layouts/Base.astro` | `<head>`, Google Fonts, and the reveal-on-scroll script. |
 | `src/pages/index.astro` | Landing page (hero, right-sized, who it's for, CTA). |
-| `src/pages/follow.astro` | Follow page (social cards). |
+| `src/pages/pricing.astro` | Pricing page (beta plans + FAQ). Plan data lives in `src/consts.js` (`PLANS`, `FAQS`). |
+| `src/pages/_follow.astro` | Follow page (social cards) — hidden. |
 | `src/components/` | `Nav`, `Footer`, `SocialCard`, `FitMeter`, `AppLink` (static) + `HeroViz.jsx` (island). |
 
 ## Brand / design system — each fact has one home, don't duplicate

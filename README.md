@@ -31,6 +31,7 @@ Pages, S3, …). No server required.
 | `astro.config.mjs` | Astro config — sets the production `site` URL and the sitemap integration. |
 | `src/layouts/Base.astro` | `<head>`: SEO meta (canonical, Open Graph, Twitter, JSON-LD), fonts, reveal-on-scroll script. |
 | `src/pages/index.astro` | Landing page (hero, right-sized, who it's for, CTA). |
+| `src/pages/pricing.astro` | Pricing page (beta plans + FAQ); plan data in `src/consts.js`. |
 | `src/pages/_follow.astro` | Follow page (social cards) — **currently hidden** (see below). |
 | `src/components/` | Nav, Footer, SocialCard, FitMeter, AppLink (static) + HeroViz (React island). |
 | `public/` | Served as-is: `robots.txt`, `favicon.svg`, `og.png`, app icons, `site.webmanifest`. |
